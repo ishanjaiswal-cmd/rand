@@ -1,130 +1,59 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <style>
-        .iframe-container {
-            overflow: hidden;
-            padding-top: 56.25%;
-            position: relative;
-        }
-        .iframe-container iframe {
-            border: 0;
-            height: 100%;
-            left: 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-        }
-        /* Styles for the fixed ad banner at the bottom */
-        #bigBanner {
-            position: fixed;
-            z-index: 2147483647;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100%;
-            background: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            bottom: 0;
-            border-top: 1px solid rgba(170, 170, 170, 0.7);
-            transition: bottom 0.3s ease;
-        }
-        #stickyClose {
-            position: absolute;
-            z-index: 2147483647;
-            cursor: pointer;
-            background: rgba(255, 255, 255, 0.7);
-            border-left: 1px solid rgba(170, 170, 170, 0.7);
-            top: -34%;
-            right: 0;
-            width: 30px;
-            height: 30px;
-            margin-bottom: -1px;
-            border-radius: 10px 0 0;
-            border-top: 1px solid rgba(170, 170, 170, 0.7);
-        }
-    </style>
-
-    <script>
-        // Google Ad Manager Setup
-        let networkid = '22614020563';
-        let gambannerpath = '/22916885969,' + networkid + '/opamarketplace/opamcmdisplay/';
-        let nativePath = '/22916885969,' + networkid + '/opamarketplace/nativefeedopamarketplace';
-
-        let gptAdSlots = [];
-        let googletag = googletag || {};
-        googletag.cmd = googletag.cmd || [];
-
-        (function() {
-            var gads = document.createElement('script');
-            gads.async = true;
-            gads.type = 'text/javascript';
-            var useSSL = 'https:' == document.location.protocol;
-            gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
-            var node = document.getElementsByTagName('script')[0];
-            node.parentNode.insertBefore(gads, node);
-        })();
-
-        googletag.cmd.push(function() {
-            gptAdSlots[1] = googletag.defineSlot(gambannerpath + 'cube', [[300, 250]], 'div-gpt-ad-8176806-1').addService(googletag.pubads());
-            gptAdSlots[2] = googletag.defineSlot(gambannerpath + 'cube2', [[300, 250]], 'div-gpt-ad-8176806-2').addService(googletag.pubads());
-            gptAdSlots[3] = googletag.defineSlot(gambannerpath + 'cube3', [[300, 250]], 'div-gpt-ad-8176806-3').addService(googletag.pubads());
-            gptAdSlots[4] = googletag.defineSlot(gambannerpath + 'rich', [[728, 90], [320, 50], [320, 100]], 'div-gpt-ad-8176806-4').addService(googletag.pubads());
-
-            googletag.pubads().collapseEmptyDivs();
-            googletag.enableServices();
-        });
-
-        function initializeAds() {
-            googletag.cmd.push(function() {
-                googletag.display('div-gpt-ad-8176806-1');
-                googletag.display('div-gpt-ad-8176806-2');
-                googletag.display('div-gpt-ad-8176806-3');
-                googletag.display('div-gpt-ad-8176806-4');
-            });
-
-            setInterval(function() {
-                googletag.pubads().refresh([gptAdSlots[0]]);
-            }, 30000); // Refresh sticky ad every 30 seconds
-        }
-
-        document.addEventListener('DOMContentLoaded', initializeAds);
-
-        // Handling the sticky close button functionality
-        document.addEventListener('scroll', function() {
-            document.getElementById('stickyClose').style.display = 'unset';
-        }, { once: true });
-
-        document.getElementById('stickyClose').addEventListener('click', function() {
-            var bigBanner = document.getElementById('bigBanner');
-            bigBanner.parentNode.removeChild(bigBanner);
-        });
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .iframe-container {
+      overflow: hidden;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      position: relative;
+    }
+    .iframe-container iframe {
+      border: 0;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  </style>
 </head>
-
-<body class="home page-template">
-    <div id="page" class="site">
-        <header id="masthead" class="site-header" data-height="80">
-            <div class="header-content__container"></div>
-        </header>
-        
-        <div id="bigBanner">
-            <div id="stickyClose">
-                <svg width="30px" height="30px" viewBox="0 0 512 512">
-                    <g fill="black">
-                        <polygon points="405,136.798 375.202,107 256,226.202 136.798,107 107,136.798 226.202,256 107,375.202 136.798,405 256,285.798 375.202,405 405,375.202 285.798,256 "></polygon>
-                    </g>
-                </svg>
-            </div>
+<body class="home page-template page-template-page-templates page-template-full-width page-template-page-templatesfull-width-php page wp-custom-logo penci_sticky_content_sidebar js-comp-ver-6.9.0 vc_responsive">
+  <div id="page" class="site">
+    <div class="site-header-wrapper">
+      <header id="masthead" class="site-header header--s5" data-height="80">
+        <div class="penci-container-fluid header-content__container">
+          <!-- Header content here if any -->
         </div>
-
-        <div class="iframe-container">
-            <iframe id="MyFrame" name="embedded_content" src="https://streamsoccer.site/new/ch5.php" allowfullscreen></iframe>
-        </div>
-
-        <center><div id="div-gpt-ad-8176806-8"></div></center>
+      </header>
     </div>
+    <div class="iframe-container" style="margin-top:20px;">
+      <iframe class="smart-player-embed-container-iframe embeddedObject shadow resizable" id="MyFrame" name="embedded_content" scrolling="no" frameborder="0" type="text/html" allowfullscreen="true" style="overflow:hidden;" src="https://streamsoccer.site/new/ch5.php" allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="widget-area widget-area-2" role="complementary">
+    <div class="theiaStickySidebar">
+      <div id="penci_text-block__20295435" class="penci-block-vc penci-text-block style-title-11 style-title-left penci-link-filter-hidden penci-vc-column-1" style="min-height: 620px;padding-top: 10px;border: 1px solid;color: #3a3a3a;">
+        <center></center>
+      </div>
+      <div class="vc_empty_space" style="height: 32px">
+        <span class="vc_empty_space_inner"></span>
+      </div>
+    </div>
+  </div>
+  <div class="widget-area widget-area-1" role="complementary">
+    <div class="theiaStickySidebar">
+      <div class="wpb_raw_code wpb_content_element wpb_raw_html">
+        <div class="wpb_wrapper">
+          <div id="penci_text-block__11236995" class="penci-block-vc penci-text-block style-title-11 style-title-left penci-link-filter-hidden penci-vc-column-1 vc_custom_1657919089513" style="min-height: 280px;border: 1px solid;color: #3a3a3a;">
+            <div class="penci-block_content">
+              <center></center>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
